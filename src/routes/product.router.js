@@ -2,9 +2,9 @@ import {Router} from "express";
 import {ProductModel} from "../models/product.model.js"
 
 const router = Router();
-// CREAR PRODUCTO
 
-router .post('/', async(req,res)=>{
+// CREAR PRODUCTO
+router.post('/', async(req,res)=>{
     try {
         const newProduct = new ProductModel(req.body);
         await product.save();
@@ -19,17 +19,18 @@ router .post('/', async(req,res)=>{
 // OBTENER PRODUCTO POR ID
 router.get('/:id', async (req, res) => {
     try {
-        const product = await ProductModel.findById (req.params.id);
+        const product = await ProductModel.findById(req.params.id);
         if (!product) {
             return res.status(404).render('error', { statusCode: 404, message: 'Page not found' });
         }
         return res.render('product', {product:product});
     } catch (error) {
-        return res.status(500).render('error', { statusCode: 500, message: 'Product not found' });
+        return res.status(404).render('error', { statusCode: 404, message: 'Product not found' });
     }
 });
 
-router.get('/', async (req, res)=>{
+//
+router.get('/', async (_req, res)=>{
     try {
         const products = await ProductModel.find();
         res.render('products',{products: products.map(product => product.toObject()) })

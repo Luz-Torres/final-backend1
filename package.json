@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "pre entrega final correspondiente al curso Backend 1 de Coderhouse",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
@@ -24,7 +25,6 @@
     "socket.io": "^4.8.0",
     "uuid": "^10.0.0"
   },
-  "type": "module",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
